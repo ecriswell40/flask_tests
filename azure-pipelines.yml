@@ -1,4 +1,12 @@
 # Python to Linux Web App on Azure
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Pay-As-You-Go(8839f280-f2c7-4a7f-ba45-dfdffb5fa6b3)'
+    appType: 'webAppLinux'
+    WebAppName: 'my-friends'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'PYTHON|3.7'
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Pay-As-You-Go (8839f280-f2c7-4a7f-ba45-dfdffb5fa6b3)'
