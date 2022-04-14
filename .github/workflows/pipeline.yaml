@@ -37,7 +37,9 @@ jobs:
     name: "pacakge"
     runs-on: ubuntu-latest
     needs: test
-      # package application into BUILD directory 
+
+    steps:
+      # package application into BUILD directory
       - name: Create BUILD directory and copy necessary application files
         run: |
           mkdir BUILD
