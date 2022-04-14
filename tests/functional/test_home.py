@@ -41,7 +41,7 @@ def test_add_friend_route(app, client):
     THEN check that the user is redirected to the home page
     """
     with app.test_client() as test_client:
-        new_friend = {"fname":"amy", "lname":"cash"}
+        new_friend = {"fname":"amy", "lname":"colbert"}
         res = test_client.post('/add_friend', data=new_friend)
         assert res.status_code == 302 # Found
  
