@@ -35,9 +35,9 @@ def age():
         birth_year = form['birth_year']
         current_age = calculate_current_age(birth_year)
         if 'future_age' in request.form:
-            age = calcuate_future_age(current_age)
+            age = calculate_future_age(current_age)
         if 'past_age' in request.form:
-            age = calcuate_past_age(current_age)
+            age = calculate_past_age(current_age)
         return render_template('age.html', pageTitle='Calculate Your Age', age=age)
     return render_template('age.html', pageTitle='Calculate Your Age')
 
