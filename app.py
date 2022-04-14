@@ -21,10 +21,10 @@ def calculate_current_age(birth_year):
     today = date.today()
     return today.year - float(birth_year)
 
-def calcuate_future_age(current_age):
+def calculate_future_age(current_age):
     return current_age + 10
 
-def calcuate_past_age(current_age):
+def calculate_past_age(current_age):
     return current_age - 10
 
 @app.route('/age', methods=['GET', 'POST'])
