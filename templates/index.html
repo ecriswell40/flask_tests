@@ -1,38 +1,31 @@
-{% extends 'base.html' %} {% block body %}
+{% extends 'base.html' %} {% block body%}
 
-<h1>My List of Friends</h1>
+<h2>Welcome to VTM!</h2>
 <hr />
-<h3>Be my friend:</h3>
-<form action="/add_friend" method="POST">
-  <label for="fname">First name:</label>
-  <input type="text" id="fname" name="fname" autofocus required />
-  <br />
-  <label for="lname">Last name:</label>
-  <input type="text" id="lname" name="lname" />
-  <br />
-  <input type="submit" id="submit" value="I'll Be Your Friend" />
-  <input type="reset" value="Clear" />
-</form>
-<br />
-<br />
 
-<hr />
-<br />
-{% if friends %}
-<h3>My Friends</h3>
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-    </tr>
-  </thead>
+<img
+  src="../static/images/above_ground_vertical_tanks.jpg"
+  class="responsive"
+/>
 
-  <tbody>
-    {% for friend in friends %}
-    <tr>
-      <td>{{ friend.name }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% endif %} {% endblock %}
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit
+  molestie dui a mattis. Donec magna enim, tincidunt accumsan tortor at,
+  vestibulum vulputate nisl. Suspendisse fringilla libero sit amet sodales
+  lacinia. Aliquam ligula augue, porttitor posuere elementum nec, porttitor
+  nec purus. Nulla facilisi. Etiam malesuada risus est, at finibus tellus
+  efficitur id. Aliquam sollicitudin mi nec mauris aliquet, non bibendum velit
+  feugiat. Phasellus in sem sed quam placerat consequat. Suspendisse ac metus
+  vitae felis finibus ultrices mattis eu risus. Curabitur iaculis faucibus
+  erat, ut gravida quam tempor et. Quisque eget urna est.
+</p>
+</div>
+
+</main>
+{% endblock%}
+<footer>&copy; VTM 2022</footer>
+</body>
+
+</html>
+
+            
