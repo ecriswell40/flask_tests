@@ -21,7 +21,7 @@ def test_about_route(app, client):
     with app.test_client() as test_client:
         res = test_client.get('/about')
         assert res.status_code == 200
-        assert b'About Vertical Tank Maintenance' in res.data
+        assert b'About' in res.data
 
 def test_estimate_route(app, client):
     """ 
@@ -32,7 +32,7 @@ def test_estimate_route(app, client):
     with app.test_client() as test_client:
         res = test_client.get('/estimate')
         assert res.status_code == 200
-        assert b"VTM Estimator" in res.data
+        assert b"Estimate" in res.data
 
 def test_estimate_route(app, client):
     """
