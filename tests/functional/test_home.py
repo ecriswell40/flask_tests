@@ -9,7 +9,7 @@ def test_index_route(app, client):
     with app.test_client() as test_client:
         res = test_client.get('/')
         assert res.status_code == 200
-        assert b'Vertical Tank Maintenance' in res.data
+        assert b'Wecome to VTM!' in res.data
 
 def test_about_route(app, client):
     """ 
@@ -21,7 +21,7 @@ def test_about_route(app, client):
     with app.test_client() as test_client:
         res = test_client.get('/about')
         assert res.status_code == 200
-        assert b'About' in res.data
+        assert b'About Vertical Tank Maintenance' in res.data
 
 def test_estimate_route(app, client):
     """ 
@@ -30,10 +30,21 @@ def test_estimate_route(app, client):
     THEN check that the response is valid
     """
     with app.test_client() as test_client:
-        Total = {"radius":"180", "height":"360"}
-        res = test_client.post('/estimate', data=Total)
+        res = test_client.get('/estimate')
         assert res.status_code == 200
-        assert b"The estimate for painting is" in res.data
+        assert b"VTM Estimator" in res.data
+
+def test_estimate_route(app, client)
+    """
+    GIVEN a Flask application configured for testing
+    WHEN the '/estimate' route is requested (POST)
+    THEN check that the response is valid
+    """
+    with app.test_client() as test_client
+    Total = {"radius":"180", "height":"360"}
+    res = test_client.post('/estimate', data=Total)
+    assert res.status_code == 200
+    assert b"The estimate for painting is $143100" in res.data
 
 
   
