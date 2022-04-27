@@ -1,57 +1,37 @@
 from flask import Flask
-from flask import render_template, redirect, request, url_for
-from datetime import date
+from flask import render_template, request
 
 app = Flask(__name__)
 
-birth_year = 0
-current_age = 0
-
-friend_list = [{"name": "Mike Colbert" } ]
-
 @app.route('/')
-def index():
-    return render_template('index.html', pageTitle='Mike\'s Friends', friends = friend_list)
+def home():
+    return render_template('index.html')
 
-@app.route('/mike')
-def mike():
-    return render_template('mike.html', pageTitle='About Mike')
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
-def calculate_current_age(birth_year):
-    today = date.today()
-    return today.year - float(birth_year)
-
-def calculate_future_age(current_age):
-    return current_age + 10
-
-def calculate_past_age(current_age):
-    return current_age - 10
-
-@app.route('/age', methods=['GET', 'POST'])
-def age():
-    if request.method == 'POST':
-        #capture year from form:
-        form = request.form
-        birth_year = form['birth_year']
-        current_age = calculate_current_age(birth_year)
-        if 'future_age' in request.form:
-            age = calculate_future_age(current_age)
-        if 'past_age' in request.form:
-            age = calculate_past_age(current_age)
-        return render_template('age.html', pageTitle='Calculate Your Age', age=age)
-    return render_template('age.html', pageTitle='Calculate Your Age')
-
-@app.route('/add_friend', methods=['GET', 'POST'])
-def add_friend():
+@app.route('/estimate', methods=['GET', 'POST'])
+def estimate():
     if request.method == 'POST':
         form = request.form
-        fname = form['fname']
-        lname = form['lname']
-        friend_dict = {"name": fname + " " + lname}
-        friend_list.append(friend_dict)
-        return redirect(url_for('index'))
-    return redirect(url_for('index'))
-    
+        radius = float(form['radius'])
+        height = float(form['height'])
+        pi = 3.14
+        labor_cost = 15
+        material_cost = 25
+
+        area_of_tank_top = pi * (radius * radius)
+        area_of_tank_sides = 2 * (pi * (radius * height))
+        total_area = area_of_tank_top + area_of_tank_sides
+        total_sqft = total_area/144
+
+        total_material_cost = total_sqft * material_cost
+        total_labor_cost = total_sqft * labor_cost
+
+        estimate = total_material_cost + total_labor_cost
+        return render_template('estimate.html', data=estimate)
+    return render_template('estimate.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
