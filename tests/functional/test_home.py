@@ -40,7 +40,7 @@ def test_estimate_route(app, client):
     WHEN the '/estimate' route is requested (POST)
     THEN check that the response is valid
     """
-    with app.test_client() as test_client
+    with app.test_client() as test_client:
     Total = {"radius":"180", "height":"360"}
     res = test_client.post('/estimate', data=Total)
     assert res.status_code == 200
