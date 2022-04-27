@@ -34,7 +34,7 @@ def test_estimate_route(app, client):
         assert res.status_code == 200
         assert b"VTM Estimator" in res.data
 
-def test_estimate_route(app, client)
+def test_estimate_route(app, client):
     """
     GIVEN a Flask application configured for testing
     WHEN the '/estimate' route is requested (POST)
