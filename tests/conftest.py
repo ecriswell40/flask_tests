@@ -1,9 +1,9 @@
 import pytest
-from app import app as vtm_tank1
+from app import app as flask_tests
 
 @pytest.fixture()
 def app():
-    yield vtm_tank1
+    yield flask_tests
 
 @pytest.fixture
 def client(app):
