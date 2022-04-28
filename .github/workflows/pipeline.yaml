@@ -1,4 +1,4 @@
-name: test-package-deploy #MWC
+name: test-package-deploy #MWC #E
 on:
   push:
     branches: [main]
